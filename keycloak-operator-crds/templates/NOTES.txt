@@ -1,0 +1,3 @@
+The keycloak operator crd is deployed
+
+next please deploy the keycloak operator

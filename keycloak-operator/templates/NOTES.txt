@@ -1,0 +1,3 @@
+The keycloak operator is deployed
+
+The next is to deploy a Keycloak Resource

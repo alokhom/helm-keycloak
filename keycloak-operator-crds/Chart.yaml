@@ -27,8 +27,8 @@ keywords:
   - operator
   - crds
 sources:
-  - https://apps-vcp-nexus.asml.com/repository/helm-infra-releases/keycloak-operator-crds
+  - https://nexus.systemtracker.no-ip.org/keycloak/keycloak-operator-crds
 icon: https://www.keycloak.org/resources/images/keycloak_icon_512px.svg
 maintainers:
-  - name: ASML
-    url: https://asml@dev.azure.com/asml/inf-digip/_git/IAM
+  - name: Alok
+    url: https://github.com/alokhom/helm-keycloak

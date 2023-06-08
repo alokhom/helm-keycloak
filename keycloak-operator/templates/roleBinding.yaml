@@ -1,0 +1,59 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ include "keycloak-operator.fullname" . }}-binding
+  namespace: {{ .Release.Namespace }}
+  labels: {{- include "keycloak-operator.labels" . | nindent 4 }}
+subjects:
+  - kind: ServiceAccount
+    namespace: {{ .Release.Namespace }}
+    name: {{ include "keycloak-operator.serviceAccountName" . }}
+roleRef:
+  kind: Role
+  name: {{ include "keycloak-operator.fullname" . }}-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ include "keycloak-operator.fullname" . }}-view
+  namespace: {{ .Release.Namespace }}
+  labels: {{- include "keycloak-operator.labels" . | nindent 4 }}
+subjects:
+  - kind: ServiceAccount
+    namespace: {{ .Release.Namespace }}
+    name: {{ include "keycloak-operator.serviceAccountName" . }}
+roleRef:
+  kind: ClusterRole
+  apiGroup: rbac.authorization.k8s.io
+  name: view
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ include "keycloak-operator.fullname" . }}-controller-cr-binding
+  namespace: {{ .Release.Namespace }}
+  labels: {{- include "keycloak-operator.labels" . | nindent 4 }}
+subjects:
+  - kind: ServiceAccount
+    namespace: {{ .Release.Namespace }}
+    name: {{ include "keycloak-operator.serviceAccountName" . }}
+roleRef:
+  kind: ClusterRole
+  name: {{ include "keycloak-operator.fullname" . }}-controller-cluster-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ include "keycloak-operator.fullname" . }}-import-cr-binding
+  namespace: {{ .Release.Namespace }}
+  labels: {{- include "keycloak-operator.labels" . | nindent 4 }}
+subjects:
+  - kind: ServiceAccount
+    namespace: {{ .Release.Namespace }}
+    name: {{ include "keycloak-operator.serviceAccountName" . }}
+roleRef:
+  kind: ClusterRole
+  name: {{ include "keycloak-operator.fullname" . }}-import-cluster-role
+  apiGroup: rbac.authorization.k8s.io

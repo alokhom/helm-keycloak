@@ -5,10 +5,11 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: quay.io/keycloak/keycloak-operator
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "21.1.1"
+  operatorImageRepository: quay.io/keycloak/keycloak
 
 imagePullSecrets: []
 nameOverride: ""
@@ -39,6 +40,7 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
+  containerPort: 8080
 
 ingress:
   enabled: false

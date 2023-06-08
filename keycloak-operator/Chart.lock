@@ -1,0 +1,6 @@
+dependencies:
+- name: keycloak-operator-crds
+  repository: https://nexus.systemtracker.no-ip.org/repository/keycloak
+  version: 0.1.1
+digest: sha256:a8c83b708f625f29e0b1afd74b8ccf986f422b3f4519c572b9f9c8731d6931cb
+generated: "2023-06-08T05:31:52.506816459+02:00"
